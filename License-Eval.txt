@@ -1,0 +1,15 @@
+Coherence Filter Engine Evaluation License (CFEL-NC-EVAL 1.0)
+
+You may:
+✅ Clone, build, and test this for non-commercial evaluation
+✅ Share logs/screenshots internally
+✅ Publish results (with attribution)
+
+You may NOT:
+❌ Use for commercial purposes (production or revenue-generating)
+❌ Redistribute binaries or source code
+❌ Sell, sublicense, or host this
+
+For commercial use, email nailercole@gmail.com
+
+© 2025 Cole Nailer. All rights reserved.
