@@ -1,4 +1,4 @@
-👉 Related project: [Coherence Filter Engine](https://github.com/coherence-engine-v2/Coherence-filter-engine)
+👉 Related project: https://github.com/coherence-engine-v2/Coherence-Visual-Validator
 
 
 # 🎯 Coherence Filter Engine v2.1
