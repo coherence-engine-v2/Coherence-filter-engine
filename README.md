@@ -1,57 +1,106 @@
-👉 Related project: https://github.com/coherence-engine-v2/Coherence-Visual-Validator
+# 🧠 Coherence Filter Engine (LoC-F)
 
+A logic validation layer powered by the Logic of Coherence (LoC) framework.
 
-# 🎯 Coherence Filter Engine v2.1
-
-**Validate your game logic before your players break it.**
-
-The **Coherence Filter Engine** is a lightweight, platform-agnostic system for verifying game state consistency. It helps Unity and Unreal developers detect **contradictions, impossible logic states, broken quest chains, or invalid narrative branches** — *before* they reach production.
+This module detects broken or illogical game-world states using rule-based logic evaluation. Designed for runtime and editor-time validation across game engines.
 
 ---
 
-## 🧠 What It Does
+## ⚙️ Rule Format (`LogicRuleSet.json`)
 
-- ✅ Accepts rules in simple JSON or Blueprint-friendly format
-- ✅ Evaluates current game state against logic rules
-- ✅ Outputs `PASS` or `FAIL` messages with custom descriptions
-- ✅ Modular: Drop into Unity or Unreal in minutes
-- ✅ Completely offline – no network, no tracking
-
-> Think of it like **unit tests for game logic and narrative flow.**
-
----
-
-## 🎮 Use Cases
-
-| Scenario | Example |
-|----------|---------|
-| 🚫 Broken Quest Flow | "Quest 5 triggered before Quest 2 was completed" |
-| 🤖 AI Logic Gaps | "Enemy isDead = true but still attacking" |
-| 🧩 Dialogue Conflicts | "NPC says player has key when they don't" |
-| 🔐 Progression Bugs | "Door opens without required event" |
-
----
-
-## 🔧 Unity Setup
-
-1. Copy `Refactored_Unity/` into `Assets/`
-2. Add `CoherenceManager` to any GameObject
-3. Create `StreamingAssets/CoherenceRuleSet.json`
-4. Press play – violations will log to Console
+```json
+{
+  "id": "is-dead-but-has-health",
+  "description": "Dead characters should not have health above 0.",
+  "ifCondition": {
+    "parameter": "isDead",
+    "comparator": "eq",
+    "value": "true"
+  },
+  "thenRequirements": [
+    {
+      "property": "health",
+      "comparator": "eq",
+      "expectedValue": "0"
+    }
+  ],
+  "message": "Character is marked dead but has non-zero health."
+}
+```
 
 ---
 
-## 🛠️ Unreal Setup
+## 🧩 Supported Logic Properties
 
-1. Copy `UCoherenceFilterComponent/` into your plugin or game code
-2. Include the component in any Blueprint Actor
-3. Add `CoherenceRuleSet.json` to `/Content/`
-4. Call `RunCoherenceCheck()` in Blueprint or `BeginPlay`
+| Property     | What It Means                                |
+|--------------|-----------------------------------------------|
+| `isDead`     | Whether the character is marked as dead       |
+| `health`     | Current health value                          |
+| `isVisible`  | Whether the object is being rendered          |
+| `ammoCount`  | Ammo remaining in a weapon                    |
+
+You can expand this by adding your own properties in `GetLogicProperty()`.
 
 ---
 
-## 🧪 Example Rule (`CoherenceRuleSet.json`)
+## ✨ Features
 
+- Runtime logic validation  
+- JSON rule system (readable, editable, expandable)  
+- Supports: `isDead`, `health`, `ammoCount`, etc.  
+- Comparators: `eq`, `ne`, `gt`, `lt`, `gte`, `lte`  
+- Integrates with in-editor or runtime debugging  
+
+**Extendable to:**
+
+- Behavior trees and state machines  
+- Inventory, combat, and quest systems  
+- Multiplayer state sync validation  
+
+---
+
+## 🧠 Based on the LoC Framework
+
+This is a core logic module for the broader Coherence Engine Stack, which includes:
+
+- ✅ [Coherence Visual Validator (LoC-V)](https://github.com/coherence-engine-v2/Coherence-Visual-Validator)  
+- 🧠 Coherence Filter Engine (Logic Layer)  
+- 🧪 Coherence-Physics (future physical consistency layer)  
+- 🤖 Coherence-AI (logic-driven NPC validation)
+
+---
+
+## 📝 License
+
+Free for non-commercial evaluation.  
+See `LICENSE-EVAL.txt` and `COMMERCIAL.md` for terms.
+
+---
+
+## 🛠️ Coming Soon
+
+- Behavior tree + FSM validation  
+- Live in-editor overlays  
+- Unreal Engine integration  
+- Multiplayer prediction mismatch detection  
+
+---
+
+## ✋ Contact
+
+Built by **@NailerCole**  
+Powered by 🧠 **Logic of Coherence (LoC)**  
+📧 [nailercole@gmail.com](mailto:nailercole@gmail.com)
+
+---
+
+## 📚 Foundational Research
+
+This project builds on the Logic of Coherence (LoC) framework:
+
+- [https://doi.org/10.5281/zenodo.17193463](https://doi.org/10.5281/zenodo.17193463)  
+- [https://doi.org/10.5281/zenodo.17194960](https://doi.org/10.5281/zenodo.17194960)  
+- [https://doi.org/10.5281/zenodo.17194978](https://doi.org/10.5281/zenodo.17194978)
 ```json
 {
   "rules": [
