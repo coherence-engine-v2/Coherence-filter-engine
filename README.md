@@ -1,3 +1,6 @@
+👉 Related project: [Coherence Filter Engine](https://github.com/coherence-engine-v2/Coherence-filter-engine)
+
+
 # 🎯 Coherence Filter Engine v2.1
 
 **Validate your game logic before your players break it.**
@@ -66,4 +69,5 @@ The **Coherence Filter Engine** is a lightweight, platform-agnostic system for v
   ]
 }
 
-👉 Related project: [Coherence Visual Validator](https://github.com/coherence-engine-v2/Coherence-Visual-Validator)
+
+
