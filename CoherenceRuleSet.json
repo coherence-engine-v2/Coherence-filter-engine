@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "id": "npc_logic_conflict",
+      "description": "An NPC cannot be both dead and conscious.",
+      "if": {
+        "AND": [
+          { "eq": ["isDead", true] },
+          { "eq": ["isConscious", true] }
+        ]
+      },
+      "message": "NPC is marked isDead=true but also isConscious=true"
+    }
+  ]
+}
