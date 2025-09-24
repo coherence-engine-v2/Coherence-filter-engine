@@ -65,3 +65,5 @@ The **Coherence Filter Engine** is a lightweight, platform-agnostic system for v
     }
   ]
 }
+
+👉 Related project: [Coherence Visual Validator](https://github.com/coherence-engine-v2/Coherence-Visual-Validator)
